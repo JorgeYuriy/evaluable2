@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{static/include :: head}"></head>
+<head>
+	<style>
+			body {
+				background-color: white;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			img {
+ 				width : 10%;
+ 				height: 10%;
+ 			}
+ 			footer {
+				 font-size: smaller;
+				 font-style: italic;
+				 text-decoration: blue;
+			 }
+			 .my_image {
+				 float: left;
+				 padding: 10px;
+			 }
+			 h1 {
+				 padding-left: 150px;
+				 padding-top: 30px;
+				 padding-bottom: 30px;
+			 }
+			 .ptop {
+				 padding-top: 0px;
+			 }
+
+ 		</style>			 
+</head>
+<body>
+	<header th:replace="~{static/include :: header}"></header>
+	<div class="container">
+	<div><div><a href="https://www.linkedin.com/in/yuriy-r-69708b253/"><img class="my_image" th:src="@{/images/tiger_scoprion.jpg}" /></a></div>
+	<h1 class="text-primary" th:text="${tituloH1}"></h1></div>
+	<br/>
+	<p th:text="${parrafo1}"></p>
+	<ui>
+		<li th:text="${parrafo2}" />
+		<li th:text="${parrafo3}" />
+	</ui><br/>
+	<p th:text="${parrafo4}"></p>
+	<p th:text="${parrafo5}"></p>
+	<ui>
+		<li th:text="${parrafo6}" />
+		<li th:text="${parrafo7}" />
+		<li th:text="${parrafo8}" />
+	</ui><br/>
+	<p th:text="${parrafo9}"></p>
+	<p th:text="${parrafo10}"></p>
+	<p th:text="${parrafo11}"></p>
+	<p th:text="${parrafo12}"></p>
+	<p th:text="${parrafo13} + ' (' + ${cantidadDeLibros} + ', ' + ${cantidadDeUsuarios} + ').' "></p>
+	<p th:text="${parrafo14}"></p>
+	</div>
+	<br/>
+</body>
+<footer th:replace="~{static/include :: footer}" ></footer>	
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{static/include :: head}"></head>
+<head>
+	<style>
+ 			footer {
+				 font-size: smaller;
+				 font-style: italic;
+				 text-decoration: blue;
+			 }
+ 		</style>			 
+</head>
+<body>
+	<header th:replace="~{static/include :: header}"></header>
+	<div class="container">
+	<h1 class="text-primary" th:text="${tituloH1}"></h1>
+	<br/>
+	<form th:action="@{/usuarios/usuario_editar}" th:object="${usuario}" method="post">
+		<table>
+			<tr>
+				<td>Nombre </td>
+				<td><input type="text" th:field="*{name}"/></td>
+				<td th:if="${#fields.hasErrors('name')}"><p class="err" th:errors="*{name}"></p></td>
+			</tr>
+			<tr>
+				<td>DNI/NIE </td>
+				<td><input type="text" th:field="*{numeroId}"/></td>
+				<td th:if="${#fields.hasErrors('numeroId')}"><p class="err" th:errors="*{numeroId}"></p></td>
+			</tr>
+			<tr>
+				<td>Número de teléfono </td>
+				<td><input type="text" th:field="*{phone}"/></td>
+				<td th:if="${#fields.hasErrors('phone')}"><p class="err" th:errors="*{phone}"></p></td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+			</tr>
+			<tr>
+				<td>Guardar libro </td>
+				<td><input type="submit" value = "Pulsa para guardar"/></td>
+			</tr>
+		</table>
+		<input type="hidden" th:field="*{id}"/>
+	</form>
+	</div>
+	<br/>	
+</body>
+<footer th:replace="~{static/include :: footer}" ></footer>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{static/include :: head}"></head>
+<head>
+	<style>
+ 			footer {
+				 font-size: smaller;
+				 font-style: italic;
+				 text-decoration: blue;
+			 }
+ 		</style>			 
+</head>
+<body>
+	<header th:replace="~{static/include :: header}"></header>
+	<div class="container">
+	<h1 class="text-primary" th:text="${tituloH1}"></h1>
+	<br/>
+	<form th:action="@{/libros/libro_editar}" th:object="${libro}" method="post">
+		<table>
+			<tr>
+				<td>Titulo </td>
+				<td><input type="text" th:field="*{name}"/></td>
+				<td th:if="${#fields.hasErrors('name')}"><p class="err" th:errors="*{name}"></p></td>
+			</tr>
+			<tr>
+				<td>Autor </td>
+				<td><input type="text" th:field="*{author}"/></td>
+				<td th:if="${#fields.hasErrors('author')}"><p class="err" th:errors="*{author}"></p></td>
+			</tr>
+			<tr>
+				<td>Número de páginas </td>
+				<td><input type="text" th:field="*{pages}"/></td>
+				<td th:if="${#fields.hasErrors('pages')}"><p class="err" th:errors="*{pages}"></p></td>
+			</tr>
+			<tr>
+				<td>Número de ejemplares </td>
+				<td><input type="text" th:field="*{samples}"/></td>
+				<td th:if="${#fields.hasErrors('samples')}"><p class="err" th:errors="*{samples}"></p></td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+			</tr>
+			<tr>
+				<td>Guardar libro </td>
+				<td><input type="submit" value = "Pulsa para guardar"/></td>
+			</tr>
+		</table>
+		<input type="hidden" th:field="*{id}"/>
+	</form>
+	</div>
+	<br/>	
+</body>
+<footer th:replace="~{static/include :: footer}" ></footer>
+</html>

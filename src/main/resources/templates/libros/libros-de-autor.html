@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{static/include :: head}"></head>
+<head>
+	<style>
+ 			footer {
+				 font-size: smaller;
+				 font-style: italic;
+				 text-decoration: blue;
+			 }
+ 		</style>			 
+</head>
+<body>
+	<header th:replace="~{static/include :: header}"></header>
+	<div class="container">
+	<h1 class="text-primary" th:text="${tituloH1}"></h1>
+	<p th:if="${libros!=null}" th:text="'Número de libros: ' + ${numLibros}"></p>
+	<p th:if="${libros==null}" th:text="No hay libros que mostrar"></p>
+	<br/>
+	<p th:if="${libros==null}"><a th:href="@{/home}">Home</a></p>
+	<table th:if="${libros!=null}" class="table table-striped">
+		<thead>
+			<tr>
+				<td><strong>ID</strong></td>
+				<td><strong>Titulo</strong></td>
+				<td><strong>Autor</strong></td>
+				<td><strong>Número de páginas</strong></td>
+				<td><strong>Número de ejemplares</strong></td>
+				<td colspan="2"><strong>Acciones</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="libro : ${libros}">
+				<td><a th:text="${libro.id}" th:href="@{/libros/libro} + '?id=' + ${libro.id}"></a></td>
+				<td th:text="${libro.name}"></td>
+				<td><a th:text="${libro.author}" th:href="@{/libros/libros/} + ${libro.author}"></a></td>
+				<td th:text="${libro.pages}"></td>
+				<td th:text="${libro.samples}"></td>
+				<td><a class="btn btn-primary btn-xs" th:text="'Eliminar ' + ${libro.id}" th:href="@{/libros/libro_borrar/} + ${libro.id}"></a></td>
+				<td><a class="btn btn-primary btn-xs" th:text="'Editar ' + ${libro.id}" th:href="@{/libros/libro_editar/} + ${libro.id}"></a></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+<footer th:replace="~{static/include :: footer}" ></footer>
+</html>
+

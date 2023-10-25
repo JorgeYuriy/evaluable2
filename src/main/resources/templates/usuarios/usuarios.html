@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{static/include :: head}"></head>
+<body>
+	<header th:replace="~{static/include :: header}"></header>
+	<div class="container">
+	<h1 class="text-primary" th:text="${tituloH1}"></h1>
+	<p th:if="${usuarios!=null}" th:text="'Número de usuarios: ' + ${numUsuarios}"></p>
+	<p th:if="${usuarios==null}" th:text="No hay usuarios que mostrar"></p>
+	<br/>
+	<p th:if="${usuarios==null}"><a th:href="@{/home}">Home</a></p>
+	<table th:if="${usuarios!=null}" class="table table-striped">
+		<thead>
+			<tr>
+				<td><strong>ID</strong></td>
+				<td><strong>Nombre</strong></td>
+				<td><strong>DNI/NIE</strong></td>
+				<td><strong>Número de teléfono</strong></td>
+				<td colspan="2"><strong>Acciones</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario : ${usuarios}">
+				<td><a th:text="${usuario.id}" th:href="@{/usuarios/usuario/} + ${usuario.id}"></a></td>
+				<td th:text="${usuario.name}"></td>
+				<td th:text="${usuario.numeroId}"></td>
+				<td th:text="${usuario.phone}"></td>
+				<td><a class="btn btn-primary btn-xs" th:text="'Eliminar ' + ${usuario.id}" th:href="@{/usuarios/usuario_borrar/} + ${usuario.id}"></a></td>
+				<td><a class="btn btn-primary btn-xs" th:text="'Editar ' + ${usuario.id}" th:href="@{/usuarios/usuario_editar/} + ${usuario.id}"></a></td>
+			</tr>
+		</tbody>
+	</table>
+	<nav th:replace="static/paginator-nav :: paginator"></nav>
+	</div>
+	<footer th:replace="~{static/include :: footer}" ></footer>
+</body>
+</html>
+
