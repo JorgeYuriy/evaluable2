@@ -31,12 +31,11 @@ public class HomeController {
 		model.addAttribute("parrafo9", "El programa proporciona un servicio para gestionar excepciones 404 y algunas excepciones de la serie 500.");
 		model.addAttribute("parrafo10", "Las plantillas HTML se organizan mediante FlashMessenger y Bootstrap y se construyen con evitación de volver a escribir el marcado repetitivo.");
 		model.addAttribute("parrafo11", "La página de inicio muestra el logotipo personal del autor con un enlace a su perfil de LinkedIn.");
-		model.addAttribute("parrafo12", "El programa proporciona un servicio API-rest para desarrolladores.");
+		model.addAttribute("parrafo12", "El programa proporciona un servicio API-rest para desarrolladores. Servicios API-rest creados para la entidad Libro:");
 		model.addAttribute("parrafo13", "La base de datos es autorenovable y se recrea con los datos iniciales utilizando el driver H2");
 		model.addAttribute("parrafo14", "El proyecto se publica a través de un repositorio público de GitHub.");
 		model.addAttribute("cantidadDeLibros", "cantidad de libros: " + libroService.count());
 		model.addAttribute("cantidadDeUsuarios", "cantidad de usuarios: " + usuarioService.count());
-		model.addAttribute("parrafo120", "Servicios API-rest creados para la entidad Libro:");
 		model.addAttribute("parrafo121", "ver la lista de libros: listadoLibrosRest()");
 		model.addAttribute("parrafo122", "ver información sobre un libro por su número de identificación: libroPorId(id)");
 		model.addAttribute("parrafo123", "borrar un titulo de libro de la lista por su número de identificación: libroBorrar(id)");
