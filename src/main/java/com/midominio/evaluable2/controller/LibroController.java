@@ -88,9 +88,13 @@ public class LibroController {
 	}
 	
 	@GetMapping("/libros/libros-de-autor/{author}")
-	public String losLibrosPorAutor(@PathVariable String author, Model model) {
+	public String losLibrosPorAutor(@PathVariable String author, @RequestParam(defaultValue = "0") int page, Model model) {
+		Pageable pageRequest = PageRequest.of(page, 5);
+		Page<Libro> libros = libroService.findByAuthor(pageRequest, author);
+		PageRender<Libro> pageRender = new PageRender<>("/libros/libros" + author, libros);
 		model.addAttribute("tituloH1", "Los libros del autor solicitado");
-		model.addAttribute("libros", libroService.findByAuthor(author));
+		model.addAttribute("libros", libros);
+		model.addAttribute("page", pageRender);
 		model.addAttribute("authorSolicitado", author);
 		return "libros/libros-de-autor";
 	}
