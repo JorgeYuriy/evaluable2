@@ -36,6 +36,12 @@ public class HomeController {
 		model.addAttribute("parrafo14", "El proyecto se publica a través de un repositorio público de GitHub.");
 		model.addAttribute("cantidadDeLibros", "cantidad de libros: " + libroService.count());
 		model.addAttribute("cantidadDeUsuarios", "cantidad de usuarios: " + usuarioService.count());
+		model.addAttribute("parrafo120", "Servicios API-rest creados para la entidad Libro:");
+		model.addAttribute("parrafo121", "ver la lista de libros: listadoLibrosRest()");
+		model.addAttribute("parrafo122", "ver información sobre un libro por su número de identificación: libroPorId(id)");
+		model.addAttribute("parrafo123", "borrar un titulo de libro de la lista por su número de identificación: libroBorrar(id)");
+		model.addAttribute("parrafo124", "crear un registro sobre un libro nuevo: libroCrear(libro)");
+		model.addAttribute("parrafo125", "editar una entrada de libro libroActualizar(libro)");
 		return "home";
 	}
 

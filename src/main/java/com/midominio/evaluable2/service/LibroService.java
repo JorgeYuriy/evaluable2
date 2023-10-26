@@ -56,6 +56,7 @@ public class LibroService {
 	public Page<Libro> listar(Pageable pageable) {
 		return libroRepository.findAll(pageable);
 	}
+	
 	/*
 	private Long id;
 	private String name;
