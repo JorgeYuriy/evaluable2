@@ -30,6 +30,7 @@ public class Usuario implements Serializable {
 	@Column(name="numero_id")
 	private String numeroId;
 	private String phone;
+	private int idLibrosPrestados;
 
 	@Column(name = "create_at")
 	@DateTimeFormat(iso = ISO.DATE)
